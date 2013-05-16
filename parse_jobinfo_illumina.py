@@ -8,7 +8,7 @@ import sys
 import collections
 
 # parse DemultiplexConfig.xml
-doc2 = etree.parse(sys.argv[2])
+doc2 = etree.parse(sys.argv[1])
 
 root2 = doc2.getroot()
 illumina_run = collections.OrderedDict()
