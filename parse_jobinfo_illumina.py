@@ -7,23 +7,11 @@ from lxml import etree
 import sys
 import collections
 
-# parse RunInfo.xml
-doc1 = etree.parse(sys.argv[1])
-
 # parse DemultiplexConfig.xml
 doc2 = etree.parse(sys.argv[2])
 
-root1 = doc1.getroot()
 root2 = doc2.getroot()
 illumina_run = collections.OrderedDict()
-
-for child in root1[0]:
-    if child.tag == "Flowcell":
-        illumina_run["Flowcell"] = child.text
-    if child.tag == "Date":
-        illumina_run["Date"] = child.text
-    if child.tag == "Instrument":
-        illumina_run["Instrument"] = child.text
 
 for element in root2.iter():
     if element.tag == "Software":
